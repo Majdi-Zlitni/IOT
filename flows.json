@@ -1,0 +1,76 @@
+[
+    {
+        "id": "8b8a0509b9343dd0",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "261e6088accd4056",
+        "type": "function",
+        "z": "8b8a0509b9343dd0",
+        "name": "",
+        "func": "if (msg.Naturl_light==true && msg.Room_light==true) msg.res=\"modir STEG walit!\"\nelse if (msg.Naturl_light==true && msg.Room_light==false) msg.res=\"OK\"\nelse if (msg.Naturl_light==false && msg.Room_light==true) msg.res=\"OK\"\nelse if (msg.Naturl_light==false && msg.Room_light==false) msg.res=\"Lum\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 180,
+        "wires": [
+            [
+                "9b489ed2d7edb6cb"
+            ]
+        ]
+    },
+    {
+        "id": "3cba1a20b4b46a83",
+        "type": "inject",
+        "z": "8b8a0509b9343dd0",
+        "name": "Light",
+        "props": [
+            {
+                "p": "Naturl_light",
+                "v": "false",
+                "vt": "bool"
+            },
+            {
+                "p": "Room_light",
+                "v": "false",
+                "vt": "bool"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 170,
+        "y": 60,
+        "wires": [
+            [
+                "261e6088accd4056"
+            ]
+        ]
+    },
+    {
+        "id": "9b489ed2d7edb6cb",
+        "type": "debug",
+        "z": "8b8a0509b9343dd0",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "res",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 280,
+        "wires": []
+    }
+]
